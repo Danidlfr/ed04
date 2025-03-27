@@ -9,7 +9,7 @@ import java.util.*;
  * @version 1.0
  * @since 2025
  */
-public class Agenda {
+public class Agenda implements iAgenda {
     private List<Persona> contacts; // Lista de Persona
     /**
      * Constructor que inicializa la lista de contactos.
@@ -23,6 +23,7 @@ public class Agenda {
      * @param name el nombre del contacto
      * @param phone el número de teléfono del contacto
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Persona c : contacts) {
@@ -43,6 +44,7 @@ public class Agenda {
      *
      * @param name el nombre del contacto a eliminar
      */
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator();
 
@@ -62,6 +64,7 @@ public class Agenda {
      * @param oldPhone el número de teléfono antiguo
      * @param newPhone el nuevo número de teléfono
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -76,6 +79,7 @@ public class Agenda {
         }
     }
 
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }
